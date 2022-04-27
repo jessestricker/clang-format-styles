@@ -26,7 +26,7 @@ jobs:
           fi
   update:
     needs: check
-    if: ${{ needs.check.outputs.needs-update }}
+    if: ${{ needs.check.outputs.needs-update == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
