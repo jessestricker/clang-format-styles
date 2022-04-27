@@ -1,6 +1,4 @@
-#! /usr/bin/env nix-shell
-#! nix-shell --pure -i bash -p clang-tools
-#! nix-shell -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/9bc841fec1c0e8b9772afa29f934d2c7ce57da8e.tar.gz
+#! /usr/bin/env bash
 
 set -e
 
