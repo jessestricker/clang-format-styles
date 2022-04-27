@@ -1,0 +1,14 @@
+name: update
+on: workflow_dispatch
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v17
+      - run: nix flake update
+      - run: nix build
+      - run: curl -L 'https://raw.githubusercontent.com/jessestricker/clang-format-styles/main/version' > current-version
+      - run: cp result/version ./latest-version
+      - run: diff current-version latest-version
+  
