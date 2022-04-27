@@ -6,4 +6,4 @@ For convenience, the output of the script is also included.
 Whenever LLVM releases a new version of `clang-tools`, the contained styles
 in this repository are updated.
 
-Current version: __14.0.1__
+Current version: __@version@__
