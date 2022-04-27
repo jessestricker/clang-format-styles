@@ -13,3 +13,12 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           path: ${{ env.UPLOAD_PATH }}
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: main
+      - uses: actions/download-artifact@v3
+      - run: git status
