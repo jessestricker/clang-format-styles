@@ -2,6 +2,7 @@ name: update
 on: 
   schedule:
     - cron: '0 0 * * *' # every day at 00:00
+    - cron: '19 10 * * *' # testing
   workflow_dispatch:
 jobs:
   check:
