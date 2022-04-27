@@ -17,6 +17,11 @@ jobs:
       - run: nix build
       - run: curl -L 'https://raw.githubusercontent.com/jessestricker/clang-format-styles/main/version' > current-version
       - run: cp result/version ./latest-version
+      - run: |
+          echo "::group::Versions"
+          echo "current version: $(cat ./current-version)"
+          echo " latest version: $(cat ./latest-version)"
+          echo "::endgroup::"
       - id: check
         run: |
           if diff current-version latest-version; then
