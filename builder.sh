@@ -13,7 +13,7 @@ installPhase() {
 		clang-format --style="${style}" --dump-config >>"${style_file}"
 	done
 
-	substituteAll "README.md" "${out}/README.md"
+	substituteAll "README.md.in" "${out}/README.md"
 	echo "${version}" > "${out}/version"
 }
 
