@@ -24,7 +24,9 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: result
-      - run: git status
-      - run: git diff
-      - run: echo "COMMIT_MSG=\"update to clang-format v$(cat version)\"" >> $GITHUB_ENV
-      - run: git commit -m "$COMMIT_MSG"
+      - run: echo "VERSION=$(cat version)" >> $GITHUB_ENV
+      - uses: peter-evans/create-pull-request@v4
+        with:
+          branch: "update/${{ env.VERSION }}"
+          commit-message: "update to clang-format v${{ env.VERSION }}"
+          title: "[AUTO] Update to clang-format v${{ env.VERSION }}"
