@@ -9,6 +9,6 @@ jobs:
       - uses: actions/checkout@v3
       - uses: cachix/install-nix-action@v17
       - run: nix build
-      - use: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v3
         with:
           path: result
