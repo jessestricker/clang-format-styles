@@ -25,3 +25,6 @@ jobs:
         with:
           name: result
       - run: git status
+      - run: git diff
+      - run: echo "COMMIT_MSG=\"update to clang-format v$(cat version)\"" >> $GITHUB_ENV
+      - run: git commit -m "$COMMIT_MSG"
