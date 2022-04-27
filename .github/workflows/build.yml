@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: source
       - uses: cachix/install-nix-action@v17
       - run: nix build
       - run: echo "UPLOAD_PATH=$(readlink -f result)" >> $GITHUB_ENV
